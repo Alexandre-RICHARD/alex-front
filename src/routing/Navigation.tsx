@@ -7,14 +7,7 @@ export function Navigation() {
 	useNavigation();
 
 	return (
-		<div
-			style={{
-				display: "flex",
-				flexDirection: "column",
-				gap: "2rem",
-				margin: "1rem",
-			}}
-		>
+		<>
 			<p>Navigation</p>
 			<nav style={{ display: "flex", gap: "1rem" }}>
 				{Object.values(projects).map((route) => (
@@ -27,6 +20,6 @@ export function Navigation() {
 				))}
 			</nav>
 			<Outlet />
-		</div>
+		</>
 	);
 }

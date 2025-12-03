@@ -1,0 +1,62 @@
+// Vars
+$fg: #00bcd4;
+$pi: 3.14;
+
+// Config
+$menu-items: 4;
+
+.menu-item {
+  background: $fg;
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  margin-left: -40px;
+  position: absolute;
+  top: 20px;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+  transform: translate3d(0, 0, 0);
+  transition: transform ease-out 200ms;
+}
+
+.menu {
+  filter: url("#shadowed-goo");
+  $width: 650px;
+  $height: 150px;
+  position: absolute;
+  left: 50%;
+  margin-left: -80px;
+  padding-top: 20px;
+  padding-left: 80px;
+  width: $width;
+  height: $height;
+  box-sizing: border-box;
+  font-size: 20px;
+  text-align: left;
+}
+
+.menu-item {
+  &:hover {
+    background: white;
+    color: $fg;
+  }
+
+  // Durées de transition (optionnelles, même valeur partout ici)
+  @for $i from 1 through $menu-items {
+    &:nth-child(#{$i + 2}) {
+      transition-duration: 180ms;
+    }
+  }
+}
+
+.menu-open:checked ~ .menu-item {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  @for $i from 1 through $menu-items {
+    &:nth-child(#{$i + 2}) {
+      transition-duration: 90ms + (100ms * $i);
+      transform: translate3d(110px * $i, 0, 0);
+    }
+  }
+}
