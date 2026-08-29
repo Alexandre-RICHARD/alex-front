@@ -1,13 +1,13 @@
 import { Outlet } from "react-router";
 
 import { Footer } from "./components/Footer";
-import { SideBarNavigation } from "./components/SideBarNavigation";
+import { Navigation } from "./components/Navigation/Navigation";
 import styles from "./satisfactoryLayout.module.scss";
 
 export function SatisfactoryLayout() {
 	return (
 		<>
-			<SideBarNavigation />
+			<Navigation />
 			<div className={styles.satisfactoryAppContainer}>
 				<main className={styles.mainContainer}>
 					<Outlet />
